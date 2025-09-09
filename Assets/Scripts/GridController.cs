@@ -27,10 +27,17 @@ public class GridController : MonoBehaviour
 
             curFlowField.CreateCostField();
 
+            //destinationCell from mouse click:
+            /*
             Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f);
             Vector3 worldMousePos = Camera.main.ScreenToWorldPoint(mousePos);
-            //mousePosCube.position = worldMousePos; //For debuging.
             Cell destinationCell = curFlowField.GetCellFromWorldPos(worldMousePos);
+            */
+
+            //destinationCell set from start:
+            Vector3 worldDestinationPos = new Vector3(10.5f, 0f, 9.5f);
+            //mousePosCube.position = worldMousePos; //For debuging.
+            Cell destinationCell = curFlowField.GetCellFromWorldPos(worldDestinationPos);
             curFlowField.CreateIntegrationField(destinationCell);
 
             curFlowField.CreateFlowField();
