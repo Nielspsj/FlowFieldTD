@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridController: {fileID: 1285060863}
-  displayGrid: 1
+  displayGrid: 0
   flowFieldDisplayType: 3
 --- !u!4 &98497701
 Transform:
@@ -347,7 +347,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a4a7ad43bfda72549bb6a86d2ccc92fc, type: 2}
+  - {fileID: 2100000, guid: e60082601d981d641980cc680a09a4dd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -700,7 +700,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a4a7ad43bfda72549bb6a86d2ccc92fc, type: 2}
+  - {fileID: 2100000, guid: e60082601d981d641980cc680a09a4dd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1138,7 +1138,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a4a7ad43bfda72549bb6a86d2ccc92fc, type: 2}
+  - {fileID: 2100000, guid: e60082601d981d641980cc680a09a4dd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1760,7 +1760,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 97ad7e82fa7a4c341a4fc3bcf1a8b363, type: 2}
+  - {fileID: 2100000, guid: fd9af38e1211f6440b50c9b167e107bd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
