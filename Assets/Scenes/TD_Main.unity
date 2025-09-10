@@ -150,7 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridController: {fileID: 1285060863}
   displayGrid: 0
-  flowFieldDisplayType: 3
+  flowFieldDisplayType: 0
 --- !u!4 &98497701
 Transform:
   m_ObjectHideFlags: 0
