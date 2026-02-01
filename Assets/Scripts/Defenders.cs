@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Defenders : MonoBehaviour
@@ -44,7 +45,7 @@ public class Defenders : MonoBehaviour
                 minDistSq = distSq;
                 closest = hits[i].transform;
                 target = closest;
-                Debug.Log("Found target");
+                //Debug.Log("Found target");
             }
         }
 
@@ -55,12 +56,12 @@ public class Defenders : MonoBehaviour
     {
         if(target == null)
         {
-            Debug.Log("Target: " + target);
+            //Debug.Log("Target: " + target);
             FindTarget();
         }
         else
         {
-            Debug.Log("Target locked to: " + target);
+            //Debug.Log("Target locked to: " + target);
 
             timeCounter += Time.deltaTime;
             if (timeCounter > fireRate)
@@ -68,8 +69,18 @@ public class Defenders : MonoBehaviour
                 timeCounter = 0;
                 unityController.unitsInGame.Remove(target.gameObject);
                 Destroy(target.gameObject);
-                Debug.Log("Shot");
+
+                StartCoroutine(ShootingEffects());
+                //Debug.Log("Shot");
             }
         }
-    }    
+    }   
+    
+    private IEnumerator ShootingEffects()
+    {
+        Color defenderColor = GetComponent<Renderer>().material.color;
+        GetComponent<Renderer>().material.color = Color.white;
+        yield return new WaitForSeconds(0.1f);
+        GetComponent<Renderer>().material.color = defenderColor;
+    }
 }
