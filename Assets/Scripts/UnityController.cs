@@ -11,7 +11,8 @@ public class UnityController : MonoBehaviour
     public float moveSpeed;
 
     private List<GameObject> unitsInGame = new List<GameObject>();
-    
+    private float spawnClearanceRadius = 2.5f;
+
     // Update is called once per frame
     void Update()
     {
@@ -48,7 +49,7 @@ public class UnityController : MonoBehaviour
         float cellRadius = gridController.cellRadius;
         Vector2 maxSpawnPos = new Vector2(gridSize.x * cellRadius * 2 + cellRadius, gridSize.y * cellRadius * 2 + cellRadius);
         //Can't spawn on impassable cells or other units.
-        int collisionMask = LayerMask.GetMask("Impassable", "Units");
+        int collisionMask = LayerMask.GetMask("Impassable", "Units", "SpawnBlocker");
         Vector3 newPos;
 
         for (int i = 0; i < numUnitsToSpawn; i++)
@@ -58,15 +59,22 @@ public class UnityController : MonoBehaviour
             newUnit.transform.parent = transform;
             unitsInGame.Add(newUnit);
 
+            //Prevent looping forever
+            int attempts = 0;
+            int maxAttempts = 100;
+
             do
             {
                 newPos = new Vector3(Random.Range(0, maxSpawnPos.x), 0, Random.Range(0, maxSpawnPos.y));
                 //Debug.Log("maxSpawnPos.y: " + maxSpawnPos.y + " newPos: " + newPos);
-                newUnit.transform.position = newPos;
+                attempts++;
             }
-            //Why overlapsphere? Why 0.25f? Seems not flexible.
-            while(Physics.OverlapSphere(newPos, 0.25f, collisionMask).Length > 0);
+            //Doesn't check fast enough because of the physics steps. Fine for slow spawning.
+            while(Physics.OverlapSphere(newPos, spawnClearanceRadius, collisionMask).Length > 0 && attempts < maxAttempts);
+            
+            newUnit.transform.position = newPos;
         }
+        //Debug.Log("Units ingame: " + unitsInGame.Count);
     }
 
     private void DestroyUnits()
@@ -77,6 +85,4 @@ public class UnityController : MonoBehaviour
         }
         unitsInGame.Clear();
     }
-
-
 }
