@@ -10,7 +10,7 @@ public class UnityController : MonoBehaviour
     public int numUnitsToSpawn;
     public float moveSpeed;
 
-    private List<GameObject> unitsInGame = new List<GameObject>();
+    public List<GameObject> unitsInGame = new List<GameObject>();
     private float spawnClearanceRadius = 2.5f;
 
     // Update is called once per frame

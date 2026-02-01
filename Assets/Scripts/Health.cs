@@ -33,7 +33,7 @@ public class Health : MonoBehaviour
     {
         if(other.tag == "Enemy")
         {
-            Debug.Log("hit");
+            //Debug.Log("hit");
             curHealth -= 1;
         }
     }
